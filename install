@@ -1,0 +1,18 @@
+#! /bin/bash
+
+echo "    **************************************"
+echo "  ****   Proca .vimrc: Installation   ******"
+echo "**********************************************"
+
+if [ -f ~/.vimrc ]; then
+  echo "  Creating backup for existing .vimrc file..."
+  mv ~/.vimrc ~/.vimrc.bak
+fi
+
+echo "  Setting proca_vimrc as default .vimrc file..."
+cp .vimrc ~/.vimrc
+
+echo "  Done."
+
+exit $?
+
