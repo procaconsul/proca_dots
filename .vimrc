@@ -32,7 +32,11 @@ set ignorecase
 set smartcase
 
 " paste with ^V without fucked up indentation
-set paste 
+set paste
+
+" allow text selection and copying with mouse
+" w/o copying line numbers as well 
+set mouse+=a 
 
 " syntax and spell-check
 syntax enable
@@ -58,12 +62,12 @@ hi CursorLine guifg=NONE guibg=NONE ctermbg=NONE gui=NONE term=NONE cterm=bold
 """"""""""""""""""""""""""""""""
 
 " using pathogen for plugins management
-execute pathogen#infect()
+" execute pathogen#infect()
 
 "PLUGINS""""""""""""""""""""""""
 
 " enable nerdTree
-map <C-t> :NERDTreeToggle<CR>
+" map <C-t> :NERDTreeToggle<CR>
 
 " setup for JSON highlighting
 au BufRead,BufNewFile *.json set filetype=json
