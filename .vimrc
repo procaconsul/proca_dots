@@ -14,6 +14,9 @@ set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+" set regular backspace in insert mode
+set backspace=2
 " ---> remember <---
 " set noexpandtab when working in Makefiles!!!
 
