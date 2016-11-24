@@ -2,21 +2,20 @@
 "   Dum differtur vita transcurrit
 
 """"""""""""""""""""""""""""""""
-" line count on the left
 
+" set hybrid between numbering 
+" and relative numbering
+set relativenumber 
 set number 
 set textwidth=80
 
 """"""""""""""""""""""""""""""""
+
 " set tab preferences
-
-set smartindent
-set tabstop=2
-set shiftwidth=2
+set autoindent
 set expandtab
-
-" set regular backspace in insert mode
-set backspace=2
+set shiftwidth=2
+set softtabstop=2
 " ---> remember <---
 " set noexpandtab when working in Makefiles!!!
 
@@ -35,19 +34,16 @@ set ignorecase
 set smartcase
 
 " paste with ^V without fucked up indentation
-set paste
+set paste 
 
-" allow text selection and copying with mouse
-" w/o copying line numbers as well 
-set mouse+=a 
+" enable use of mouse
+" set mouse=a
 
 " syntax and spell-check
 syntax enable
 set spelllang=it,en_gb
 
 """"""""""""""""""""""""""""""""
-
-filetype plugin indent on
 
 " display configuration
 set background=dark
@@ -65,13 +61,20 @@ hi CursorLine guifg=NONE guibg=NONE ctermbg=NONE gui=NONE term=NONE cterm=bold
 """"""""""""""""""""""""""""""""
 
 " using pathogen for plugins management
-" execute pathogen#infect()
+execute pathogen#infect()
 
 "PLUGINS""""""""""""""""""""""""
 
+" NerdCommenter
+" add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
 " enable nerdTree
-" map <C-t> :NERDTreeToggle<CR>
+map <C-t> :NERDTreeToggle<CR>
 
 " setup for JSON highlighting
 au BufRead,BufNewFile *.json set filetype=json
+
+" enable filetype differentiation for plugins
+filetype plugin on
 
