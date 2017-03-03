@@ -4,15 +4,22 @@ echo "    **************************************"
 echo "  ****   Proca .vimrc: Installation   ******"
 echo "**********************************************"
 
-echo "[INFO] Downloading vim pathogen (package manager)..."
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+if [ ! -f ~/.vim/autoload/pathogen.vim ]; then 
+	echo "[INFO] Downloading vim pathogen (package manager)..."
+	mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+	curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+fi
 
-echo "[INFO] Downloading NERDTree..."
-git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+if [ ! -d ~/.vim/bundle/nerdtree ]; then
+	echo "[INFO] Downloading NERDTree..."
+	git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+fi
 
-echo "[INFO] Downloading NERDCommenter..."
-git clone https://github.com/scrooloose/nerdcommenter.git ~/.vim/bundle/nerdcommenter
+COMMENTER=""
+if [ ! -d ~/.vim/bundle/nerdcommenter ]; then
+	echo "[INFO] Downloading NERDCommenter..."
+	git clone https://github.com/scrooloose/nerdcommenter.git ~/.vim/bundle/nerdcommenter
+fi 
 
 if [ -f ~/.vimrc ]; then
   echo "[INFO]  Creating backup for existing .vimrc file..."
