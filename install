@@ -4,12 +4,22 @@ echo "    **************************************"
 echo "  ****   Proca .vimrc: Installation   ******"
 echo "**********************************************"
 
+echo "[INFO] Downloading vim pathogen (package manager)..."
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+echo "[INFO] Downloading NERDTree..."
+git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+
+echo "[INFO] Downloading NERDCommenter..."
+git clone https://github.com/scrooloose/nerdcommenter.git ~/.vim/bundle/nerdcommenter
+
 if [ -f ~/.vimrc ]; then
-  echo "  Creating backup for existing .vimrc file..."
+  echo "[INFO]  Creating backup for existing .vimrc file..."
   mv ~/.vimrc ~/.vimrc.bak
 fi
 
-echo "  Setting proca_vimrc as default .vimrc file..."
+echo "[INFO]  Setting proca_vimrc as default .vimrc file..."
 cp .vimrc ~/.vimrc
 
 echo "  Done."

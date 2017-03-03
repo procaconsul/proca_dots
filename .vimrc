@@ -17,6 +17,8 @@ set expandtab
 set shiftwidth=2
 set tabstop=2
 
+set backspace=2
+
 " adapt indentation to filetype
 filetype plugin indent on
 
@@ -41,7 +43,7 @@ set smartcase
 set paste 
 
 " enable use of mouse
-" set mouse=a
+" set mouse+=a
 
 " syntax and spell-check
 syntax enable
