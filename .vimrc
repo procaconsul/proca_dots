@@ -71,6 +71,8 @@ execute pathogen#infect()
 
 " NerdCommenter
 " add spaces after comment delimiters by default
+" <map leader> = \. Can change it with following:
+" let mapleader=<whatever you want>
 let g:NERDSpaceDelims = 1
 
 " enable nerdTree
