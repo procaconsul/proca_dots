@@ -11,19 +11,16 @@ set textwidth=80
 
 """"""""""""""""""""""""""""""""
 
-" set tab preferences
-set smartindent
-set expandtab
-set shiftwidth=2
-set tabstop=2
-
-set backspace=2
-
 " adapt indentation to filetype
 filetype plugin indent on
 
-" ---> remember <---
-" set noexpandtab when working in Makefiles!!!
+" set tab preferences
+autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab
+
+" set noexpandtab when working w/ Makefiles
+autocmd FileType make setlocal noexpandtab 
+
+set backspace=2
 
 """"""""""""""""""""""""""""""""
 
