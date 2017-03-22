@@ -77,6 +77,9 @@ execute pathogen#infect()
 " let mapleader=<whatever you want>
 let g:NERDSpaceDelims = 1
 
+" Unset the last search pattern register by hitting return
+nnoremap <CR> :noh<CR><CR>
+
 " enable nerdTree
 map <C-t> :NERDTreeToggle<CR>
 
