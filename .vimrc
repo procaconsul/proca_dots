@@ -68,6 +68,9 @@ execute pathogen#infect()
 
 "PLUGINS""""""""""""""""""""""""
 
+" vim-airline (Status bar)
+let g:airline_theme='light'
+
 " NerdCommenter
 " add spaces after comment delimiters by default
 " <map leader> = \. Can change it with following:
