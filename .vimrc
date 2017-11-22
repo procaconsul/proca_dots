@@ -37,7 +37,7 @@ set ignorecase
 set smartcase
 
 " paste with ^V without fucked up indentation
-set paste 
+" set paste 
 
 " enable use of mouse
 " set mouse+=a
