@@ -69,7 +69,7 @@ execute pathogen#infect()
 "PLUGINS""""""""""""""""""""""""
 
 " vim-airline (Status bar)
-let g:airline_theme='light'
+let g:airline_theme='dark'
 
 " NerdCommenter
 " add spaces after comment delimiters by default

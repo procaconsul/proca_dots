@@ -26,6 +26,12 @@ if [ ! -d ~/.vim/bundle/vim-airline ]; then
   git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
 fi
 
+if [ ! -d ~/.vim/bundle/vim-fugitive ]; then
+  echo "[INFO] Downloading vim-fugitive..."
+  git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
+  vim -u NONE -c "helptags vim-fugitive/doc" -c q
+fi
+
 if [ -f ~/.vimrc ]; then
   echo "[INFO]  Creating backup for existing .vimrc file..."
   mv ~/.vimrc ~/.vimrc.bak
@@ -37,4 +43,3 @@ cp .vimrc ~/.vimrc
 echo "  Done."
 
 exit $?
-
