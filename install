@@ -4,33 +4,8 @@ echo "    **************************************"
 echo "  ****   Proca .vimrc: Installation   ******"
 echo "**********************************************"
 
-if [ ! -f ~/.vim/autoload/pathogen.vim ]; then 
-	echo "[INFO] Downloading vim pathogen (package manager)..."
-	mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-	curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-fi
-
-if [ ! -d ~/.vim/bundle/nerdtree ]; then
-	echo "[INFO] Downloading NERDTree..."
-	git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
-fi
-
-if [ ! -d ~/.vim/bundle/nerdcommenter ]; then
-	echo "[INFO] Downloading NERDCommenter..."
-	git clone https://github.com/scrooloose/nerdcommenter.git ~/.vim/bundle/nerdcommenter
-fi 
-
-if [ ! -d ~/.vim/bundle/vim-airline ]; then 
-  echo "[INFO] Downloading vim-airline and associated themes..."
-  git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
-  git clone https://github.com/vim-airline/vim-airline-themes ~/.vim/bundle/vim-airline-themes
-fi
-
-if [ ! -d ~/.vim/bundle/vim-fugitive ]; then
-  echo "[INFO] Downloading vim-fugitive..."
-  git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
-  vim -u NONE -c "helptags vim-fugitive/doc" -c q
-fi
+echo "[INFO]  Using vim-plug for plugin management."
+echo "[INFO]  Open vim and run :PlugInstall to install all."
 
 if [ -f ~/.vimrc ]; then
   echo "[INFO]  Creating backup for existing .vimrc file..."

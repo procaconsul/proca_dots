@@ -61,12 +61,23 @@ set t_Co=256
 colors default
 hi CursorLine guifg=NONE guibg=NONE ctermbg=NONE gui=NONE term=NONE cterm=bold
 
-""""""""""""""""""""""""""""""""
-
-" using pathogen for plugins management
-execute pathogen#infect()
-
 "PLUGINS""""""""""""""""""""""""
+
+" using vim-plugin for plugins management
+" Install all via :PlugInstall
+" Update all via :PlugUpdate
+call plug#begin('~/.vim/plugged')
+
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdcommenter'
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+" Initialize plugin system
+call plug#end()
 
 " vim-airline (Status bar)
 let g:airline_theme='dark'
