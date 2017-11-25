@@ -70,8 +70,9 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'scrooloose/nerdcommenter'
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -82,6 +83,16 @@ call plug#end()
 " vim-airline (Status bar)
 let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
+
+" vim-syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " NerdCommenter
 " add spaces after comment delimiters by default
