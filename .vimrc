@@ -73,6 +73,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
 Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
+Plug 'tpope/vim-endwise'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -89,6 +90,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_mode_map = { 'mode': 'passive' }
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -104,7 +106,14 @@ let g:NERDSpaceDelims = 1
 nnoremap <CR> :noh<CR><CR>
 
 " enable nerdTree
-map <C-t> :NERDTreeToggle<CR>
+noremap <C-t> :NERDTreeToggle<CR>
+
+" fuzzy finder toggle
+noremap <C-g> :FZF<CR>
+
+" syntastic toggle
+nnoremap <C-w>E :SyntasticToggleMode<CR> :SyntasticCheck<CR> 
+nnoremap <C-w>D :SyntasticToggleMode<CR>  
 
 " setup for JSON highlighting
 au BufRead,BufNewFile *.json set filetype=json
