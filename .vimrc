@@ -42,6 +42,9 @@ set smartcase
 " enable use of mouse
 " set mouse+=a
 
+" scroll setting
+set scrolloff=999
+
 " syntax and spell-check
 syntax enable
 set spelllang=it,en_gb
@@ -52,14 +55,18 @@ set spelllang=it,en_gb
 set background=dark
 set t_Co=256
 
-" specific settings for solarized theme
-"let g:solarized_termcolors=256
-"let g:solarized_visibility="high"
-"let g:solarized_contrast="high"
-"let g:solarized_termtrans=1
-
 colors default
 hi CursorLine guifg=NONE guibg=NONE ctermbg=NONE gui=NONE term=NONE cterm=bold
+
+"FOLDING""""""""""""""""""""""""
+
+" Toggle fold
+nnoremap <Space> za
+
+set foldmethod=indent
+
+" File unfolded when opened
+set foldlevelstart=99
 
 "PLUGINS""""""""""""""""""""""""
 
@@ -74,6 +81,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'tpope/vim-endwise'
+Plug 'airblade/vim-gitgutter'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
