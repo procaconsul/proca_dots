@@ -1,0 +1,17 @@
+# Custom aliases for local environment
+
+alias desk='cd /Users/Consul/Desktop'
+
+alias ls='ls -G'
+alias bcal='_bcal' 
+alias ltsa='java -jar /usr/local/ltsatool/ltsa.jar'
+alias sicstus='rlwrap /usr/local/sicstus4.3.0/bin/sicstus'
+alias clingo='rlwrap /usr/local/clingo-3.0.5-macos-10.8.3/clingo'
+alias vimrc='vim ~/.vimrc'
+alias bashrc='vim ~/.bashrc'
+alias bashaliases='vim ~/.bash_aliases'
+alias reload='source ~/.bashrc'
+alias physicalcores='sysctl hw.physicalcpu'
+alias cores='sysctl -n hw.ncpu'
+
+

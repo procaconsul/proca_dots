@@ -1,24 +1,41 @@
 #! /bin/bash
 
 echo "    **************************************"
-echo "  ****   Proca .vimrc: Installation   ******"
+echo "  ****   Proca-dotfiles: Installation   ****"
 echo "**********************************************"
 
+DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SUB_DIRS="runcom"
+
+echo "[INFO]  Creating symlinks in home directory for *rc files..."
+for SUB in $SUB_DIRS; do
+  for DOTFILE in `find $DOTFILES_DIR/$SUB -type f`; do
+    
+    FILE_NAME=`basename $DOTFILE`
+    
+    # Create backups
+    if [ -f ~/$FILE_NAME ]; then
+      echo "[INFO]  Creating backup for existing $FILE_NAME file..."
+      mv ~/$FILE_NAME ~/$FILE_NAME.bak
+    fi
+
+    # Create symlink 
+    ln -sfv "$DOTFILE" ~
+
+  done
+done
+
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
-  echo "[INFO]  Installing vim-plug for plugin management."
-  echo "[INFO]  Open vim and run :PlugInstall to install all."
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  echo "Shall I install vim-plug for plugin management? [y/n] "
+  read res
+  if [ "$res" == "y" ]; then 
+    echo "[INFO]  Installing vim-plug for plugin management."
+    echo "[INFO]  Open vim and run :PlugInstall to install all."
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  fi
 fi
 
-if [ -f ~/.vimrc ]; then
-  echo "[INFO]  Creating backup for existing .vimrc file..."
-  mv ~/.vimrc ~/.vimrc.bak
-fi
-
-echo "[INFO]  Setting proca_vimrc as default .vimrc file..."
-cp .vimrc ~/.vimrc
-
-echo "  Done."
+echo "[INFO]  Done."
 
 exit $?

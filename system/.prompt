@@ -1,0 +1,18 @@
+
+# Prompt settings
+
+GREEN="\[\033[38;5;82m\]"
+BLUE="\[\033[38;5;21m\]"
+NO_COL="\[\033[0m\]"
+
+
+colors=`tput colors`
+if [ $colors == 256 ]; then 
+  export PS1="$BLUE consul$NO_COL in$GREEN \w$BLUE # $NO_COL"
+  export PS2="$BLUE> $NO_COL"
+else
+  export PS1="consul # "
+  export PS2="> "
+fi
+
+
