@@ -39,6 +39,9 @@ if [ ! -f ~/.vim/autoload/plug.vim ]; then
   fi
 fi
 
+echo "[INFO] Enabling new configuration..."
+source ~/.bashrc
+
 echo "[INFO]  Done."
 
 exit $?
