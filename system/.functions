@@ -1,6 +1,5 @@
 
-
-function _bcal {
+function _bcal() {
   cd ~/development/shared/java/Birthdays_Cal/src
   rlwrap java src/BirthDayCalendar
   cd -

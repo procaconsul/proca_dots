@@ -16,7 +16,7 @@ for SUB in $SUB_DIRS; do
     # Create backups
     if [ -f ~/$FILE_NAME ]; then
       echo "[INFO]  Creating backup for existing $FILE_NAME file..."
-      mv ~/$FILE_NAME ~/$FILE_NAME.bak
+      cat ~/$FILE_NAME > ~/$FILE_NAME.bak
     fi
 
     # Create symlink 
@@ -24,6 +24,9 @@ for SUB in $SUB_DIRS; do
 
   done
 done
+
+echo "[INFO] Symlinking the dotfiles directory from home directory..."
+ln -sfv "$DOTFILES_DIR" ~
 
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
   echo "Shall I install vim-plug for plugin management? [y/n] "

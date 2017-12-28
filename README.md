@@ -1,13 +1,17 @@
-# Proca_vimrc: just another custom vimrc file
+# Proca_dots: just another customised dot-file system
 
-This is my current vimrc file setup. I keep adding lines whenever I need more functionalities, preferring this approach to downloading an off-the-shelf advanced vimrc setup.
+This is my current dot-files setup. I keep adding lines whenever I need more functionalities, preferring this approach to downloading an off-the-shelf advanced configuration files.
 
 # Installation
 
-To install my vimrc file after cloning the repository, setting it as your default vimrc, simply execute the ```install``` script as follows:
+To adopt this configuration setup, after cloning the repository simply execute the ```install``` script as follows:
 ```
-$ cd proca_vimrc
+$ cd proca_dots
 $ ./install
 ```
-The script will scan your home directory looking for an existing vimrc file. Should one already exist, it will be copied in a vimrc.bak file, thus enabling you to recover your own configuration.
+The script will scan your home directory looking for an existing *rc file. Should them already exist, they will be copied in a .*.bak file, thus enabling you to recover your own configuration files. It will then create symlinks to the *rc files from the home directory to ease access to each of them.
+
+## Credits 
+
+A simple "thank you" to @ameykusurkar for the countless suggestions and endless resources shared.
 
