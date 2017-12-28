@@ -1,6 +1,6 @@
 # Proca_dots: just another customised dot-file system
 
-This is my current dot-files setup. I keep adding lines whenever I need more functionalities, preferring this approach to downloading an off-the-shelf advanced configuration files.
+This is my current dot-files setup. I keep adding lines whenever I need more functionalities, preferring this approach to downloading off-the-shelf advanced configuration files.
 
 # Installation
 
