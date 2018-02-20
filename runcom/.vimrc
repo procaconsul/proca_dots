@@ -82,6 +82,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'tpope/vim-endwise'
 Plug 'airblade/vim-gitgutter'
+Plug 'tomlion/vim-solidity'
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
