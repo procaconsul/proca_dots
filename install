@@ -20,13 +20,17 @@ for SUB in $SUB_DIRS; do
     fi
 
     # Create symlink 
-    ln -sfv "$DOTFILE" ~
+    if [ ! -L "$DOTFILE" ]; then
+      ln -sfv "$DOTFILE" ~
+    fi
 
   done
 done
 
-echo "[INFO] Symlinking the dotfiles directory from home directory..."
-ln -sfv "$DOTFILES_DIR" ~
+if [ ! -L "$DOTFILES_DIR" ]; then
+  echo "[INFO] Symlinking the dotfiles directory from home directory..."
+  ln -sfv "$DOTFILES_DIR" ~
+fi
 
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
   echo "Shall I install vim-plug for plugin management? [y/n] "
