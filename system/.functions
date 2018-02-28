@@ -6,6 +6,25 @@ function _bcal() {
 }
 
 function cs() {
-    cd "$@" && ls
+  cd "$@" && ls
 }
 
+function latexc() {
+  
+  pdflatex "$@".tex
+  bibtex "$@".aux
+  pdflatex "$@".tex
+  pdflatex "$@".tex
+
+  if [ ! -d "out/" ];
+  then 
+  	mkdir out
+  fi
+	
+  EXTS="aux bbl blg log out toc"
+  for EXT in $EXTS; do
+	mv "$@".$EXT out/	
+  done
+
+  open "$@".pdf
+}
