@@ -1,19 +1,25 @@
 # Custom aliases for local environment
 
-alias desk='cd /Users/Consul/Desktop'
 
-alias ls='ls -G'
-alias bcal='_bcal' 
+if [ $(uname) == "Darwin" ];
+then
+  alias desk='cd /Users/Consul/Desktop'
+  alias physicalcores='sysctl hw.physicalcpu'
+  alias cores='sysctl -n hw.ncpu'
+  alias ls='ls -G'
+else
+  alias desk='cd ~/Desktop'
+  alias ls='ls --color=auto'
+fi
+
+
 alias ltsa='java -jar /usr/local/ltsatool/ltsa.jar'
 alias sicstus='rlwrap /usr/local/sicstus4.3.0/bin/sicstus'
-alias clingo='rlwrap /usr/local/clingo-3.0.5-macos-10.8.3/clingo'
 alias ilasp='rlwrap /usr/local/ilasp-spatial3.1.0/ILASP_SPATIAL'
 # alias ilasp='rlwrap /usr/local/ilasp-3.1.0/ILASP'
 alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
 alias aliases='vim ~/proca_dots/system/.aliases'
 alias reload='source ~/.bashrc'
-alias physicalcores='sysctl hw.physicalcpu'
-alias cores='sysctl -n hw.ncpu'
 
 

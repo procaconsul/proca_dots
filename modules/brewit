@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Check for Homebrew existence
+which -s brew
+if [[ $? != 0 ]];
+then  
+  # Install Homebrew 
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+  brew upgrade
+  brew update
+fi
+
+brew install $@
+
+# Remove outdated formulae from the cellar
+brew cleanup
+
+exit $?
+

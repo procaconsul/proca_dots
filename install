@@ -5,11 +5,11 @@ echo "  ****   Proca-dotfiles: Installation   ****"
 echo "**********************************************"
 
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-SUB_DIRS="runcom"
+CONF_FILES="runcom"
 
 echo "[INFO]  Creating symlinks in home directory for *rc files..."
-for SUB in $SUB_DIRS; do
-  for DOTFILE in `find $DOTFILES_DIR/$SUB -type f`; do
+for CONF in $CONF_FILES; do
+  for DOTFILE in `find $DOTFILES_DIR/$CONF -type f`; do
     
     FILE_NAME=`basename $DOTFILE`
     
@@ -46,6 +46,27 @@ fi
 echo "[INFO] Enabling new configuration..."
 source ~/.bashrc
 
-echo "[INFO]  Done."
+# External packages ###########################################################
+
+EXT_PKGS=modules
+
+echo "Shall I proceed installing external packages from your package manager?"
+read res
+if [ "$res" == "y" ]; then
+
+  if [ $(uname) == "Darwin" ];
+  then 
+    INSTALLER=$EXT_PKGS/brewit
+  else 
+    INSTALLER=$EXT_PKGS/aptit
+  fi
+  
+  source $DOTFILES_DIR/$EXT_PKGS/.module_list  
+
+  $INSTALLER $packages
+fi
+
+
+echo "[INFO]  All done."
 
 exit $?
