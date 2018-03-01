@@ -1,5 +1,7 @@
 #!/bin/bash
 
+declare -a pkgs casks
+
 # Check for Homebrew existence
 which -s brew
 if [[ $? != 0 ]];
@@ -11,7 +13,22 @@ else
   brew update
 fi
 
-brew install $@
+
+while (( $# )); do
+  case $1 in
+    --pkgs=*) pkgs+=( "${1#*=}" );;
+    --casks=*) casks+=( "${1#*=}" );;
+  esac
+  shift
+done
+
+
+# Install packages
+brew install "${pkgs[@]}" 
+
+# Install casks
+brew tap caskroom/cask
+brew cask install "${casks[@]}"
 
 # Remove outdated formulae from the cellar
 brew cleanup

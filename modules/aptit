@@ -1,9 +1,20 @@
 #!/bin/bash
 
+declare -a pkgs
+
 sudo apt-get update
+
+while (( $# )); do
+  case $1 in
+    --pkgs=*) pkgs+=( "${1#*=}" );;
+    *) ;;
+  esac
+  shift
+done
+
 
 sudo apt-get upgrade -y
 sudo apt-get dist-upgrade -y
-sudo apt-get install $@
+sudo apt-get install "${pkgs[@]}"
 sudo apt-get autoremove -y
 sudo apt-get autoclean -y
