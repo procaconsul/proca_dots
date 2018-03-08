@@ -28,5 +28,12 @@ for SUB in $DOTFILES_SUBDIRS; do
   done 
 done
 
+# Build path
+PATH=""
+PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+PATH="$PATH:/Users/Consul/.sdkman/candidates/scala/current/bin"
+PATH="$PATH:/Library/TeX/texbin:/opt/X11/bin:/Users/Consul/.fzf/bin"
+export PATH
+
 # Load dependencies
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
