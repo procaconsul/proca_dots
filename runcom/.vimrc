@@ -11,11 +11,11 @@ set textwidth=80
 
 """"""""""""""""""""""""""""""""
 
-" adapt indentation to filetype
-filetype plugin indent on
-
 " set tab preferences
 autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab
+
+" adapt indentation to filetype
+filetype plugin indent on
 
 " set noexpandtab when working w/ Makefiles
 autocmd FileType make setlocal noexpandtab 
@@ -94,17 +94,6 @@ call plug#end()
 let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
 
-" vim-syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_mode_map = { 'mode': 'passive' }
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 " NerdCommenter
 " add spaces after comment delimiters by default
 " <map leader> = \. Can change it with following:
@@ -119,10 +108,6 @@ noremap <C-t> :NERDTreeToggle<CR>
 
 " fuzzy finder toggle
 noremap <C-g> :FZF<CR>
-
-" syntastic toggle
-nnoremap <C-w>E :SyntasticToggleMode<CR> :SyntasticCheck<CR> 
-nnoremap <C-w>D :SyntasticToggleMode<CR>  
 
 " setup for JSON highlighting
 au BufRead,BufNewFile *.json set filetype=json
