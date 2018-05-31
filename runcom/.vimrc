@@ -109,8 +109,14 @@ noremap <C-t> :NERDTreeToggle<CR>
 " fuzzy finder toggle
 noremap <C-g> :FZF<CR>
 
+"""""""""""""""""""""""""""""""""
+"SYNTAX HIGHLIGHTING
+
 " setup for JSON highlighting
 au BufRead,BufNewFile *.json set filetype=json
+
+" setup for logic programming highlighting (using prolog highlight)
+au BufRead,BufNewFile *.lp,*.las set filetype=prolog
 
 " enable filetype differentiation for plugins
 filetype plugin on
