@@ -19,6 +19,11 @@ function latexc() {
   for EXT in $EXTS; do
 	mv "$@".$EXT out/	
   done
-
-  open "$@".pdf
+  
+  if [ $(uname) == "Darwin" ];
+  then
+       open "$@".pdf
+  else
+       xdg-open "$@".pdf
+  fi
 }
