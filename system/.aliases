@@ -14,9 +14,6 @@ fi
 
 
 alias ltsa='java -jar /usr/local/ltsatool/ltsa.jar'
-alias sicstus='rlwrap /usr/local/sicstus4.3.0/bin/sicstus'
-alias ilasp='rlwrap /usr/local/ilasp-spatial3.1.0/ILASP_SPATIAL'
-# alias ilasp='rlwrap /usr/local/ilasp-3.1.0/ILASP'
 alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
 alias aliases='vim ~/proca_dots/system/.aliases'
