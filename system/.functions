@@ -4,26 +4,26 @@ function cs() {
 }
 
 function latexc() {
-  
-  pdflatex "$@".tex
-  bibtex "$@".aux
-  pdflatex "$@".tex
-  pdflatex "$@".tex
+   
+  pdflatex "${@:2}" "$1".tex 
+  bibtex "$1".aux
+  pdflatex "${@:2}" "$1".tex 
+  pdflatex "${@:2}" "$1".tex 
 
   if [ ! -d "out/" ];
   then 
   	mkdir out
   fi
-	
+        
   EXTS="aux bbl blg log out toc"
   for EXT in $EXTS; do
-	mv "$@".$EXT out/	
+        mv "$1".$EXT out/	
   done
-  
+
   if [ $(uname) == "Darwin" ];
   then
-       open "$@".pdf
+       open "$1".pdf
   else
-       xdg-open "$@".pdf
+       xdg-open "$1".pdf
   fi
 }

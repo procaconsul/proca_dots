@@ -90,6 +90,8 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Initialize plugin system
 call plug#end()
 
+
+
 " vim-airline (Status bar)
 let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
