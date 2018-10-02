@@ -7,17 +7,13 @@ NO_COL="\[\033[0m\]"
 LIGHT_BLUE="\[\033[1;38;5;27m\]"
 
 
-colors=`tput colors`
-if [ $colors == 256 ]; then 
-  case `uname -s` in 
-    Linux*)   export PS1="$LIGHT_BLUE consul$NO_COL in$GREEN \w$LIGHT_BLUE # $NO_COL";
-              export PS2="$LIGHT_BLUE> $NO_COL";;
-    Darwin*)  export PS1="$BLUE consul$NO_COL in$GREEN \w$BLUE # $NO_COL";
-              export PS2="$BLUE> $NO_COL";;
-  esac
-else
-  export PS1="consul # "
-  export PS2="> "
-fi
+case `uname -s` in 
+  Linux*)   export PS1="$LIGHT_BLUE proca$NO_COL in$GREEN \w$LIGHT_BLUE $ $NO_COL";
+            export PS2="$LIGHT_BLUE> $NO_COL";;
+  Darwin*)  export PS1="$BLUE proca$NO_COL in$GREEN \w$BLUE $ $NO_COL";
+            export PS2="$BLUE> $NO_COL";;
+  *)        export PS1="proca in \w$ "
+            export PS2="> "
+esac
 
 

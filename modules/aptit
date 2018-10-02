@@ -2,7 +2,11 @@
 
 declare -a pkgs
 
-sudo apt-get update
+if [ $EUID -ne 0 ]; then
+  ROOT="sudo"
+fi
+
+$ROOT apt-get update
 
 while (( $# )); do
   case $1 in
@@ -13,8 +17,8 @@ while (( $# )); do
 done
 
 
-sudo apt-get upgrade -y
-sudo apt-get dist-upgrade -y
-sudo apt-get install "${pkgs[@]}"
-sudo apt-get autoremove -y
-sudo apt-get autoclean -y
+$ROOT apt-get upgrade -y
+$ROOT apt-get dist-upgrade -y
+$ROOT apt-get install "${pkgs[@]}"
+$ROOT apt-get autoremove -y
+$ROOT apt-get autoclean -y
