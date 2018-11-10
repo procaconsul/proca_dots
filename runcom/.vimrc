@@ -1,6 +1,11 @@
 " VIMRC of Ivan Procaccini 2015
 "   Dum differtur vita transcurrit
 
+if &term =~ "ansi"
+  let &t_ti = "\<Esc>[?47h"
+  let &t_te = "\<Esc>[?47l"
+endif
+
 """"""""""""""""""""""""""""""""
 
 " set hybrid between numbering 
@@ -20,6 +25,7 @@ filetype plugin indent on
 " set noexpandtab when working w/ Makefiles
 autocmd FileType make setlocal noexpandtab 
 
+set mouse=a " scolling and pane selection in all modes
 set backspace=2
 
 """"""""""""""""""""""""""""""""
@@ -77,7 +83,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'tpope/vim-endwise'
 Plug 'airblade/vim-gitgutter'
@@ -90,17 +96,9 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Initialize plugin system
 call plug#end()
 
-
-
 " vim-airline (Status bar)
 let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
-
-" NerdCommenter
-" add spaces after comment delimiters by default
-" <map leader> = \. Can change it with following:
-" let mapleader=<whatever you want>
-let g:NERDSpaceDelims = 1
 
 " Unset the last search pattern register by hitting return
 nnoremap <CR> :noh<CR><CR>
@@ -110,6 +108,8 @@ noremap <C-t> :NERDTreeToggle<CR>
 
 " fuzzy finder toggle
 noremap <C-g> :FZF<CR>
+
+nnoremap <leader>u gUiw
 
 """""""""""""""""""""""""""""""""
 "SYNTAX HIGHLIGHTING

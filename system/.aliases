@@ -1,19 +1,15 @@
 # Custom aliases for local environment
 
-
 if [ $(uname) == "Darwin" ];
 then
-  alias desk='cd /Users/Consul/Desktop'
   alias physicalcores='sysctl hw.physicalcpu'
   alias cores='sysctl -n hw.ncpu'
   alias ls='ls -G'
 else
-  alias desk='cd ~/Desktop'
   alias ls='ls --color=auto'
 fi
 
-
-alias ltsa='java -jar /usr/local/ltsatool/ltsa.jar'
+alias desk='cd ~/Desktop'
 alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
 alias aliases='vim ~/proca_dots/system/.aliases'
