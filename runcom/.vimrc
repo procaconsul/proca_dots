@@ -42,12 +42,6 @@ set hlsearch
 set ignorecase
 set smartcase
 
-" paste with ^V without fucked up indentation
-" set paste 
-
-" enable use of mouse
-" set mouse+=a
-
 " scroll setting
 set scrolloff=999
 
@@ -61,13 +55,11 @@ set spelllang=it,en_gb
 set background=dark
 set t_Co=256
 
-colors default
+colo solarized
 hi CursorLine guifg=NONE guibg=NONE ctermbg=NONE gui=NONE term=NONE cterm=bold
 
 "FOLDING""""""""""""""""""""""""
 
-" Toggle fold
-nnoremap <Space> za
 
 set foldmethod=indent
 
@@ -87,10 +79,8 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'tpope/vim-endwise'
 Plug 'airblade/vim-gitgutter'
-Plug 'tomlion/vim-solidity'
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-
-" On-demand loading
+Plug 'vimwiki/vimwiki'
+Plug 'mxw/vim-jsx'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Initialize plugin system
@@ -100,13 +90,16 @@ call plug#end()
 let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
 
-" Unset the last search pattern register by hitting return
-nnoremap <CR> :noh<CR><CR>
+"""""""""""""""""""""""""""""""""
+" REMAPPINGS
 
-" enable nerdTree
+" Toggle fold
+nnoremap <Space> za
+
+" Toggle nerdTree
 noremap <C-t> :NERDTreeToggle<CR>
 
-" fuzzy finder toggle
+" Toggle fuzzy finder 
 noremap <C-g> :FZF<CR>
 
 nnoremap <leader>u gUiw

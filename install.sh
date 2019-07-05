@@ -1,15 +1,13 @@
-#! /bin/bash
-
 echo "    **************************************"
 echo "  ****   Proca-dotfiles: Installation   ****"
 echo "**********************************************"
 
-DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DOTFILES_DIR="$HOME/proca_dots"
 CONF_FILES="runcom"
 
 echo "[INFO]  Creating symlinks in home directory for *rc files..."
 for CONF in $CONF_FILES; do
-  for DOTFILE in `find $DOTFILES_DIR/$CONF -type f`; do
+  for DOTFILE in `find $DOTFILES_DIR/$CONF -type f -name ".*"`; do
     
     FILE_NAME=`basename $DOTFILE`
     
@@ -35,7 +33,7 @@ fi
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
   echo "Shall I install vim-plug for plugin management? [y/n] "
   read res
-  if [ "$res" == "y" ]; then 
+  if [[ "$res" = 'y' ]]; then 
     echo "[INFO]  Installing vim-plug for plugin management."
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -47,30 +45,29 @@ else
   vim +PlugClean! +:qa
 fi
 
+if [ ! -d ~/.oh-my-zsh ]; then
+  echo "[INFO] Installing Oh-My-ZSH..."
+  curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+  echo "[INFO] Installing Oh-My-ZSH custom plugins..."
+  source plugins/oh-my-zsh_plugins.sh
+fi
+
 echo "[INFO] Enabling new configuration..."
-source ~/.bashrc
+zsh
 
 # External packages ###########################################################
 
-EXT_PKGS=modules
-
 echo "Shall I proceed installing external packages via your package manager? [y/n]"
 read res
-if [ "$res" == "y" ]; then
-
-  if [ $(uname) == "Darwin" ];
-  then 
-    INSTALLER=$EXT_PKGS/brewit
-  else 
-    INSTALLER=$EXT_PKGS/aptit
+if [[ "$res" = 'y' ]]; then
+  if [[ $(uname) = 'darwin' ]]; then
+    if [[ ! `whence brew` ]]; then
+      echo "[INFO] Installing brew..."
+      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+    source $DOTFILES_DIR/plugins/brew_install.sh
   fi
-  
-  source $DOTFILES_DIR/$EXT_PKGS/.module_list  
-
-  $INSTALLER "${packages[@]/#/--pkgs=}" "${casks[@]/#/--casks=}"
 fi
 
-
 echo "[INFO]  All done."
-
 exit $?

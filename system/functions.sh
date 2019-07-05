@@ -20,10 +20,10 @@ function latexc() {
         mv "$1".$EXT out/	
   done
 
-  if [ $(uname) == "Darwin" ];
+  if [[ $(uname) = 'Darwin' ]];
   then
        open "$1".pdf
   else
-       xdg-open "$1".pdf
+       acroread "$1".pdf
   fi
 }
