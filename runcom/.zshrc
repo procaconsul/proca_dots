@@ -7,7 +7,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/ivan/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export LANG=en_UK.UTF-8
 export DEFAULT_USER="ivan"
 
