@@ -55,7 +55,7 @@ set spelllang=it,en_gb
 set background=dark
 set t_Co=256
 
-colo default
+colo solarized
 hi CursorLine guifg=NONE guibg=NONE ctermbg=NONE gui=NONE term=NONE cterm=bold
 
 "FOLDING""""""""""""""""""""""""
