@@ -6,6 +6,7 @@ if [[ $(uname) = 'Darwin' ]]; then
   alias ls='ls -G'
   alias brewfile='vim ~/proca_dots/plugins/Brewfile'
   alias brewfreeze='brew bundle dump --force --file=~/proca_dots/plugins/Brewfile'
+  alias weeknotes='vim ~/dev/weekly-diary/current-week.md'
 fi
 
 alias desk='cd ~/Desktop'
