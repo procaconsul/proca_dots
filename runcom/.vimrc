@@ -55,7 +55,7 @@ set spelllang=it,en_gb
 set background=dark
 set t_Co=256
 
-colo solarized
+colo default
 hi CursorLine guifg=NONE guibg=NONE ctermbg=NONE gui=NONE term=NONE cterm=bold
 
 "FOLDING""""""""""""""""""""""""
@@ -74,6 +74,7 @@ set foldlevelstart=99
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
+Plug 'ambv/black'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
@@ -117,3 +118,5 @@ au BufRead,BufNewFile *.lp,*.las set filetype=prolog
 " enable filetype differentiation for plugins
 filetype plugin on
 
+" call black on save (only .py files)
+autocmd BufWritePre *.py execute ':Black'
