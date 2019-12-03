@@ -104,7 +104,11 @@ noremap <C-t> :NERDTreeToggle<CR>
 " Toggle fuzzy finder 
 noremap <C-g> :FZF<CR>
 
+" Uppercase word
 nnoremap <leader>u gUiw
+
+" Remove highlighting 
+nnoremap <CR> :noh<CR> 
 
 """""""""""""""""""""""""""""""""
 "SYNTAX HIGHLIGHTING
