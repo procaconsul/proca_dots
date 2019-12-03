@@ -15,7 +15,7 @@ function latexc() {
   	mkdir out
   fi
         
-  EXTS="aux bbl blg log out toc"
+  EXTS=(aux bbl blg log out toc)
   for EXT in $EXTS; do
         mv "$1".$EXT out/	
   done
