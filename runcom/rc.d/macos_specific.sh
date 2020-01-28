@@ -7,7 +7,7 @@
 ################################
 
 PATH=""
-PATH="$PATH:/usr/local/opt/python/libexec/bin"
+PATH="$PATH:/usr/local/opt/python@3.8/bin"
 PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 PATH="$PATH:/Users/$USER/.sdkman/candidates/scala/current/bin"
 PATH="$PATH:/Library/TeX/texbin:/opt/X11/bin:/Users/$USER/.fzf/bin"

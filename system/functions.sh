@@ -1,4 +1,3 @@
-
 function cs() {
   cd "$@" && ls
 }

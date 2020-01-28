@@ -1,0 +1,8 @@
+[user]
+	name = Ivan Procaccini
+	email = ivanprocaccini905@gmail.com
+[alias]
+  rm-branch = !git branch -D $2 && git push $1 --delete $2 && :
+  sync-submodule = !git submodule sync --recursive && git submodule update --init --recursive && :
+[status]
+  submoduleSummary = true
