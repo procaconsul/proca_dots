@@ -9,5 +9,5 @@ $ ./install.sh
 ```
 
 ## Acknowledgements
-A simple "thank you" to @ameykusurkar for the countless suggestions and endless resources shared.
+A simple "thank you" to [ameykusurkar](https://github.com/ameykusurkar) for the countless suggestions and endless resources shared.
 
