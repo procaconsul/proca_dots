@@ -12,7 +12,7 @@ endif
 " and relative numbering
 set relativenumber 
 set number 
-set textwidth=80
+" set textwidth=80
 
 """"""""""""""""""""""""""""""""
 
@@ -25,7 +25,8 @@ filetype plugin indent on
 " set noexpandtab when working w/ Makefiles
 autocmd FileType make setlocal noexpandtab 
 
-set mouse=a " scolling and pane selection in all modes
+" scolling and pane selection in all modes
+set mouse=a 
 set backspace=2
 
 """"""""""""""""""""""""""""""""
@@ -74,6 +75,7 @@ set foldlevelstart=99
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-surround'
 Plug 'ambv/black'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
@@ -83,7 +85,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vimwiki/vimwiki'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'mattn/emmet-vim'
+Plug 'prettier/vim-prettier', {'do': 'yarn install'}
 
 " Initialize plugin system
 call plug#end()
@@ -124,3 +130,7 @@ filetype plugin on
 
 " call black on save (only .py files)
 autocmd BufWritePre *.py execute ':Black'
+
+" call Prettier on save (relevant files)
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html execute ':Prettier'
+
