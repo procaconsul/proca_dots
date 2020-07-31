@@ -8,16 +8,19 @@
 
 PATH=""
 PATH="$PATH:/usr/local/opt/python@3.8/bin"
-PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-PATH="$PATH:/Users/$USER/.sdkman/candidates/scala/current/bin"
-PATH="$PATH:/Library/TeX/texbin:/opt/X11/bin:/Users/$USER/.fzf/bin"
-PATH="$PATH:$HOME/Library/Python/2.7/bin"
+PATH="$PATH:/usr/local/Cellar/node/12.12.0/bin"
+PATH="$PATH:/usr/local/opt/ruby/bin"
+PATH="$PATH:/usr/local/lib/ruby/gems/2.6.0/bin"
+PATH="$PATH:/usr/local/bin"
+PATH="$PATH:/usr/bin"
+PATH="$PATH:/bin"
+PATH="$PATH:/usr/sbin"
+PATH="$PATH:/sbin"
+PATH="$PATH:/Library/TeX/texbin"
 export PATH
-
 export JAVA_HOME=`/usr/libexec/java_home`
 
-
-# SDK setup: keep at the bottom of the file #####################
-export SDKMAN_DIR="/Users/Consul/.sdkman"
-[[ -s "/Users/Consul/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/Consul/.sdkman/bin/sdkman-init.sh"
-
+if command -v pyenv 1 > /dev/null 2>&1
+then
+  eval "$(pyenv init -)"
+fi
