@@ -65,8 +65,6 @@ if [[ $(uname) = 'Darwin' ]]; then
   if [[ ! $(whence brew) ]]; then
     echo "[INFO] Installing brew..."
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
-    eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
   source $DOTFILES_DIR/plugins/brew_install.sh
 fi
