@@ -30,6 +30,13 @@ if [ ! -L "$DOTFILES_DIR" ]; then
   ln -sfv "$DOTFILES_DIR" ~
 fi
 
+if [ ! -f ~/.vim/colors/solarized.vim ]; then
+  echo "Installing vim-solarized..."
+  git clone https://github.com/altercation/vim-colors-solarized.git /tmp/vim-colors-solarized
+  mkdir -p ~/.vim/colors
+  mv /tmp/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/
+fi
+
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
   echo "Shall I install vim-plug for plugin management? [y/n] "
   read res
@@ -52,21 +59,16 @@ if [ ! -d ~/.oh-my-zsh ]; then
   source plugins/oh-my-zsh_plugins.sh
 fi
 
-echo "[INFO] Enabling new configuration..."
-zsh
-
 # External packages ###########################################################
 
-echo "Shall I proceed installing external packages via your package manager? [y/n]"
-read res
-if [[ "$res" = 'y' ]]; then
-  if [[ $(uname) = 'darwin' ]]; then
-    if [[ ! $(whence brew) ]]; then
-      echo "[INFO] Installing brew..."
-      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    fi
-    source $DOTFILES_DIR/plugins/brew_install.sh
+if [[ $(uname) = 'Darwin' ]]; then
+  if [[ ! $(whence brew) ]]; then
+    echo "[INFO] Installing brew..."
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
+  source $DOTFILES_DIR/plugins/brew_install.sh
 fi
 
 echo "[INFO]  All done."
