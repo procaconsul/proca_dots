@@ -6,3 +6,7 @@
   sync-submodule = !git submodule sync --recursive && git submodule update --init --recursive && :
 [status]
   submoduleSummary = true
+[pull]
+	rebase = true
+[init]
+	defaultBranch = master

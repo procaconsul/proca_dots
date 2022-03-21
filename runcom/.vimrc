@@ -76,7 +76,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
-Plug 'ambv/black'
+Plug 'ambv/black', {'branch': 'main'}
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
@@ -132,5 +132,10 @@ filetype plugin on
 autocmd BufWritePre *.py execute ':Black'
 
 " call Prettier on save (relevant files)
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html execute ':Prettier'
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue, execute ':Prettier'
+
+" prettier configuration
+let g:prettier#config#use_tabs = 'true'
+let g:prettier#config#semi = 'false'
+let g:prettier#config#jsx_bracket_same_line = 'true'
 
