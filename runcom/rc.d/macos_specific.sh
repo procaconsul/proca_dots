@@ -13,10 +13,7 @@ PATH="$PATH:/bin"
 PATH="$PATH:/usr/sbin"
 PATH="$PATH:/sbin"
 PATH="$PATH:/Library/TeX/texbin"
+PATH="$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH"
 export PATH
-export JAVA_HOME=`/usr/libexec/java_home`
 
-if command -v pyenv 1 > /dev/null 2>&1
-then
-  eval "$(pyenv init -)"
-fi
+export JAVA_HOME=$(whence java)

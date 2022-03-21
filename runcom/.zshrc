@@ -29,7 +29,7 @@ HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(zsh-syntax-highlighting git)
+plugins=(zsh-syntax-highlighting git autojump)
 source $ZSH/oh-my-zsh.sh
 
 # Stop if not runnning interactively
@@ -56,12 +56,6 @@ if [[ $(uname) = 'Darwin' ]];
 then 
   source $DOTFILES_DIR/runcom/rc.d/macos_specific.sh
 fi
-
- # Fuzzy Finder
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Autojump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 ##############################################
 # ZSH Config
@@ -138,11 +132,15 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# FUZZY FINDER
+[[ ! -f ~/.fzf.zsh ]] || source ~/.fzf.zsh
+
+# HOMEBREW
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # PYENV
-export PATH="$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
