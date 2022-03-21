@@ -26,3 +26,9 @@ function latexc() {
        acroread "$1".pdf
   fi
 }
+
+ldap() {
+  ldapsearch -x -D ip914@IC.AC.UK -b "dc=ic,dc=ac,dc=uk" -H \
+    "ldaps://ldaps-vip.cc.ic.ac.uk:636" -W \
+    "(|(cn=$1)(sn=$1)(givenName=$1))"
+}
