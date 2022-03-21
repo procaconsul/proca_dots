@@ -7,9 +7,9 @@ CONF_FILES="runcom"
 
 echo "[INFO]  Creating symlinks in home directory for *rc files..."
 for CONF in $CONF_FILES; do
-  for DOTFILE in `find $DOTFILES_DIR/$CONF -type f -name ".*"`; do
+  for DOTFILE in $(find $DOTFILES_DIR/$CONF -type f -name ".*"); do
     
-    FILE_NAME=`basename $DOTFILE`
+    FILE_NAME=$(basename $DOTFILE)
     
     # Create backups
     if [ -f ~/$FILE_NAME ]; then
@@ -61,7 +61,7 @@ echo "Shall I proceed installing external packages via your package manager? [y/
 read res
 if [[ "$res" = 'y' ]]; then
   if [[ $(uname) = 'darwin' ]]; then
-    if [[ ! `whence brew` ]]; then
+    if [[ ! $(whence brew) ]]; then
       echo "[INFO] Installing brew..."
       ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
