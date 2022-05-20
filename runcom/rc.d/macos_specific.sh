@@ -16,4 +16,9 @@ PATH="$PATH:/Library/TeX/texbin"
 PATH="$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH"
 export PATH
 
+
+export LIBRARY_PATH="$LIBRARY_PATH:$HOMEBREW_PREFIX/lib"
+export C_INCLUDE_PATH="$C_INCLUDE_PATH:$HOMEBREW_PREFIX/include"
+export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:$HOMEBREW_PREFIX/include"
+
 export JAVA_HOME=$(whence java)
